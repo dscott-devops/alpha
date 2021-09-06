@@ -4,3 +4,7 @@
 <p><strong>Description: <%= @article.description %></strong></p>
 <p><strong>Tags: <%= @article.tags %></strong></p>
 <p><strong>Category: <%= @article.category %></strong></p>
+
+<p><%= link_to 'Edit Article', edit_article_path(@article) %></p>
+<p><%= link_to 'Delete', article_path(@article), method: :delete, data: {confirm: "Are you sure"}%></p>
+<p><%= link_to 'Articles Listing', articles_path %></p>
