@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+ main_container{
+      width: 10%;
+ }
+.container {
+  width:95%;
+  padding: 10px;
+}
+.jumbotron {
+color:#000000 ;
+background-color:#CCCCCC !important;*/
+  padding: 10px;
+}
