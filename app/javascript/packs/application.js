@@ -11,3 +11,12 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+//= require jquery3
+//= require jquery-ui
+//= require popper
+//= require bootstrap-sprockets
+
+$(document).ready(function(){
+ $('.ui.dropdown') .dropdown();
+});
