@@ -1,5 +1,40 @@
-<h1>This is the show action</h1>
+<div id="page-content">
+   <div class="container">
+      <div class="text-center">
+         <h1><%=  @article.title %></h1>
 
+         <div class="row justify-content-md-center">
+            <div class="col-8 mt-4">
+               <div class="shadow mb-5 bg-white rounded">
+                  <div class="card">
+                     <h5 class="card-header font-italic">by Darryl Scott</h5>
+                     <div class="card-body">
+                        <h1 class="card-title"><%=  @article.title %></h1>
+                        <p class="card-text"><%= @article.description %></p>
+                        <p class="card-text"><%= @article.tags %></p>
+                        <p class="card-text"><%= @article.category %></p>
+                          <%= link_to "Edit", edit_article_path(@article), class: "btn btn-outline-info" %>
+                            <%= link_to "Delete", article_path(@article), method: :delete,data: {confirm: "Are you sure"}, class: "btn btn-outline-danger" %>
+                            <br>
+                            <p class="card-footer font-italic mt-2"><small>Created at: <%= time_ago_in_words(@article.created_at) %> Edited at <%= time_ago_in_words(@article.updated_at) %></small></p>
+                        <!--
+                        <a href="#" class="btn btn-outline-success">View</a>
+                        <a href="#" class="btn btn-outline-info">Edit</a>
+                        <a href="#" class="btn btn-outline-danger">Delete</a>
+                        -->
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+      </div>
+   </div>
+</div>
+
+
+
+<!--
 <p><strong>Title: <%= @article.title %></strong></p>
 <p><strong>Description: <%= @article.description %></strong></p>
 <p><strong>Tags: <%= @article.tags %></strong></p>
@@ -8,3 +43,5 @@
 <p><%= link_to 'Edit Article', edit_article_path(@article) %></p>
 <p><%= link_to 'Delete', article_path(@article), method: :delete, data: {confirm: "Are you sure"}%></p>
 <p><%= link_to 'Articles Listing', articles_path %></p>
+
+-->
