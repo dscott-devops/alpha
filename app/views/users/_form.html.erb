@@ -41,7 +41,7 @@
 </div>
 
 
-<%= f.submit class: "btn btn-outline-light btn-lg"%><br>
+<%= f.submit(@user.new_record? ? "Sign Up" : "Update Profile",  class: "btn btn-outline-light btn-lg")%><br>
 
 
 

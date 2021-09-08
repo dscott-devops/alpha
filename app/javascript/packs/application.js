@@ -16,7 +16,3 @@ ActiveStorage.start()
 //= require jquery-ui
 //= require popper
 //= require bootstrap-sprockets
-
-$(document).ready(function(){
- $('.ui.dropdown') .dropdown();
-});
