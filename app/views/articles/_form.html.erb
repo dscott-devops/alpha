@@ -1,4 +1,4 @@
-<%= render 'shared/errors' %>
+<%= render 'shared/errors', obj: @article %>
 
 <%= form_with(model: @article, class: "shadow mb-5 p-3 rounded bg-secondary", local: true) do |f| %>
   <div class="form-group row mb-2">
