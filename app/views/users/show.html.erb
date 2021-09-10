@@ -1,9 +1,13 @@
 <div id="page-content">
    <div class="container">
       <div class="text-center">
-        <h1><%= @user.username %></h1>
-<%= gravatar_for @user, size: 300 %>
+        <h1><%= link_to "#{@user.first_name} #{@user.last_name}", user_path(@user) %></h1>
+<%= link_to gravatar_for(@user, size: 300), user_path(@user) %>
 <% @articles = @user.articles %>
+<p class="card-text"><%= "Articles: #{@user.articles.count}" %></p>
+ <p class="card-text"><%= @user.role %></p>
+    <p class="card-text"><%= @user.location %></p>
+    <p class="card-text"> <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-outline-info" %></p>
 <%= render 'layouts/articles' %>
 
 

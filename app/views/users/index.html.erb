@@ -15,8 +15,7 @@
                         <p class="card-text"><%= "Articles: #{user.articles.count}" %></p>
                          <p class="card-text"><%= user.role %></p>
                             <p class="card-text"><%= user.location %></p>
-                              <p class="card-text"><%= user.location %></p>
-                        <%= link_to "View Profile", user_path(user), class: "btn btn-outline-success" %>
+                            <%= link_to "View Profile", user_path(user), class: "btn btn-outline-success" %>
                          <%= link_to "Edit Profile", edit_user_path(user), class: "btn btn-outline-info" %>
                            <br>
                            <p class="card-footer font-italic mt-2"><small>User Created at: <%= time_ago_in_words(user.created_at) %> Edited at <%= time_ago_in_words(user.updated_at) %></small></p>

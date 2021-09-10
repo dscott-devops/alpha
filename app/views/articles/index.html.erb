@@ -2,12 +2,22 @@
    <div class="container">
       <div class="text-center">
          <h1>Listing Articles</h1>
+         <div class="flickr_pagination">
+            <div class="page_info">
+              <%= page_entries_info @articles %>
+            </div>
+            <%= will_paginate @articles, :container => false %>
+          </div>
          <% @articles.each do |article|%>
          <div class="row justify-content-md-center">
             <div class="col-8 mt-4">
                <div class="shadow mb-5 bg-white rounded">
                   <div class="card">
-                     <h5 class="card-header font-italic"><%= article.user.username %></h5>
+                    <% if article.user %>
+                    <h5 class="card-header font-italic">By <%= link_to "#{article.user.first_name} #{article.user.last_name}", article.user %></h5>
+                    <% else %>
+                    <h5 class="card-header font-italic">By</h5>
+                      <% end %>
                      <div class="card-body">
                         <h5 class="card-title"><%= link_to article.title,article_path(article), class: "text-success" %></h5>
                         <p class="card-text"><%= truncate(article.description, length: 100) %></p>
@@ -29,6 +39,12 @@
             </div>
          </div>
          <% end %>
+         <div class="flickr_pagination">
+            <div class="page_info">
+              <%= page_entries_info @articles %>
+            </div>
+            <%= will_paginate @articles, :container => false %>
+          </div>
       </div>
    </div>
 </div>

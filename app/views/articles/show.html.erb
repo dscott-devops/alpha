@@ -7,7 +7,8 @@
             <div class="col-8 mt-4">
                <div class="shadow mb-5 bg-white rounded">
                   <div class="card">
-                     <h5 class="card-header font-italic"><%= @article.user.username %></h5>
+                    <h5 class="card-header font-italic"> <%= link_to gravatar_for(@article.user), user_path(@article.user) %><%= link_to "#{@article.user.first_name} #{@article.user.last_name}", @article.user %></h5>
+
                      <div class="card-body">
                         <h1 class="card-title"><%=  @article.title %></h1>
                         <p class="card-text"><%= @article.description %></p>
