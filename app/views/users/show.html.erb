@@ -1,0 +1,13 @@
+<div id="page-content">
+   <div class="container">
+      <div class="text-center">
+        <h1><%= @user.username %></h1>
+<%= gravatar_for @user, size: 300 %>
+<% @articles = @user.articles %>
+<%= render 'layouts/articles' %>
+
+
+
+</div>
+</div>
+</div>
