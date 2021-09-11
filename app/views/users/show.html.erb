@@ -5,9 +5,14 @@
 <%= link_to gravatar_for(@user, size: 300), user_path(@user) %>
 <% @articles = @user.articles %>
 <p class="card-text"><%= "Articles: #{@user.articles.count}" %></p>
- <p class="card-text"><%= @user.role %></p>
-    <p class="card-text"><%= @user.location %></p>
+<p class="card-text">Email: <%= @user.email %></p>
+<p class="card-text">Username: <%= @user.username %></p>
+ <p class="card-text">Role: <%= @user.role %></p>
+    <p class="card-text">Location: <%= @user.location %></p>
+
+         <% if logged_in? && @user == current_user %>
     <p class="card-text"> <%= link_to "Edit Profile", edit_user_path(@user), class: "btn btn-outline-info" %></p>
+     <% end %>
 <%= render 'layouts/articles' %>
 
 

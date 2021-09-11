@@ -15,27 +15,54 @@
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="<%= users_path %>">Users</a>
     </li>
-    <li class="nav-item">
-        <!--
-      <a class="nav-link" href="<%= articles_path %>">Articles</a>
-          -->
-      <%= link_to "Articles", articles_path, class: "nav-link" %>
 
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Articles
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li>
+            <%= link_to "Listing", articles_path, class: "dropdown-item" %>
+        </li>
+        <% if logged_in? %>
+        <li><a class="dropdown-item" href="<%= new_article_path %>">Create New Article</a></li>
+  <% end %>
+
+
+      </ul>
+    </li>
+
+    <% if logged_in? %>
+    <li class="nav-item">
+    <%= link_to "Log out", logout_path, class: "nav-link", method: :delete %>
     </li>
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Menu
+        <%= "(Admin)" if current_user.admin? %> <%="#{current_user.first_name} #{current_user.last_name}" %>
       </a>
       <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li><a class="dropdown-item" href="<%= page_about_path %>">About</a></li>
-        <li><a class="dropdown-item" href="<%= page_contact_path %>">Contact</a></li>
+        <li>
+            <%= link_to "View Profile", user_path(current_user), class: "dropdown-item" %>
+        </li>
+        <% if logged_in? %>
+        <li><a class="dropdown-item" href="<%= edit_user_path(current_user) %>">Edit Profile</a></li>
+
         <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
+        <li>
+          <%= link_to "Delete Profile", user_path(current_user), class: "dropdown-item text-danger", method: :delete, data: { confirm: "Are you sure you want to delete your own account"} %>
+      </li>
+        <% end %>
       </ul>
     </li>
+    <% else %>
     <li class="nav-item">
-      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    <%= link_to "Log in", login_path, class: "nav-link" %>
     </li>
+    <li class="nav-item">
+    <%= link_to "Sign Up", signup_path, class: "nav-link" %>
+    </li>
+    <% end %>
+
   </ul>
   <form class="d-flex">
     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

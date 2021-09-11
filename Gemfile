@@ -20,7 +20,6 @@ gem 'jbuilder', '~> 2.7'
 # twbs/bootstrap-rubygem https://github.com/twbs/bootstrap-rubygem
 gem 'bootstrap', '~> 5.1.0'
 #Bootstrap JavaScript can optionally use jQuery. If you're using Rails 5.1+, you can add the jquery-rails gem to your Gemfile:
-gem 'popper_js', '~> 2.9.3'
 gem 'jquery-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

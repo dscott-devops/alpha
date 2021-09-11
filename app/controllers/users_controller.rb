@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, only: [:edit, :update]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
+
 def new
   @user = User.new
 end
@@ -8,12 +12,12 @@ def index
 end
 
 def show
-@user = User.find(params[:id])
 end
 
 def create
-  @user = User.new(user_params)
-  if @user.save
+@user = User.new(user_params)
+if @user.save
+    session[:user_id] = @user.id
     flash["notice"] = "You have successfully created a user #{@user.first_name} #{@user.last_name} "
     redirect_to articles_path
   else
@@ -22,10 +26,8 @@ def create
 end
 
 def edit
-  @user = User.find(params[:id])
 end
 def update
-  @user = User.find(params[:id])
   if @user.update(user_params)
     flash[:notice] = "User was successfully updated"
     redirect_to @user
@@ -34,10 +36,30 @@ def update
   end
 end
 
+def destroy
+  @user.destroy
+  if current_user == @user
+    session[:user_id] = nil
+  end
+  flash[:notice] = "Account and all articles successfully deleted"
+  redirect_to root_path
+end
+
 private
 
 def user_params
   params.require(:user).permit(:username, :first_name,:last_name, :location, :role, :email,:password)
+end
+
+def set_user
+  @user = User.find(params[:id])
+end
+
+def require_same_user
+  if current_user != @user && !current_user.admin?
+    flash[:alert] = "You can only edit or delete your own account"
+    redirect_to @user
+  end
 end
 
 end
