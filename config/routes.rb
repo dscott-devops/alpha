@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'chatroom', to: 'chatroom#index'
+  get 'chat', to: 'chatroom#chat'
+  get 'chat1', to: 'chatroom#chat1'
+  get 'chat2', to: 'chatroom#chat2'
   get 'page/about'
   get 'page/contact'
   root 'page#index'

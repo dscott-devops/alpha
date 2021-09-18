@@ -1,0 +1,38 @@
+<div class="container-fluid bg-dark">
+
+<div >
+    <h1 class="text-white text-center">Chatroom<h1>
+      </div>
+</div>
+<div class="container-fluid" >
+<div class="row">
+   <div class="bg-primary col-12 col-md-8 chatbox text-white font-weight-bold" >
+<%= render "messages/messages" %>
+
+   </div>
+   <div class="col-6 col-md-4 chatbox">
+    <nav id="chatmenu" class="nav flex-column bg-dark text-white">
+  <a class="nav-link active" href="#">Active</a>
+  <a class="nav-link" href="#">Link</a>
+  <a class="nav-link" href="#">Link</a>
+  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+</nav>
+   </div>
+ </div>
+ <div class="row">
+    <div class="col-12 col-md-8">
+
+   <div class="input-group mt-4">
+      <input class="form-control border-right-0">
+      <span class="input-group-append bg-white">
+          <button class="btn border border-left-0" type="button"> <i class="fas fa-reply"></i></button>
+          <button class="btn border border-left-0" type="button"> <i class="fa fa-home"></i></button>
+      </span>
+  </div>
+
+    </div>
+    <div class="col-6 col-md-4">
+
+    </div>
+  </div>
+ </div>
